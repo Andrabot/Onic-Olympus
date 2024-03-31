@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onic Esport</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #383838; /* Warna background body */
+            color: #FBC701; /* Warna teks utama */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            position: relative;
+            text-align: center;
+            color: #fbc701;
+            overflow: hidden; /* Mencegah overflow konten */
+            background-color: #5500D; /* Warna background header */
+            padding: 20px 0; /* Padding atas bawah */
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('f1.jpg');
+            background-size: cover;
+            background-position: center 30%; /* Menempatkan gambar di bagian bawah */
+            z-index: -1;
+            filter: brightness(88%); /* Opacity 50% */
+            opacity: 0.7; /* Opacity 70% */
+        }
+
+        header h1 {
+            margin-top: 30px;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: #383838; /* Warna background navigasi */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #FBC701; /* Warna teks navigasi */
+            text-decoration: none;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+
+        /* Form styles */
+        .form {
+            background-color: #383838; /* Warna background form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form input[type="text"],
+        .form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #FBC701; /* Warna border input */
+            border-radius: 4px;
+            background-color: #383838; /* Warna background input */
+            color: #FBC701; /* Warna teks input */
+        }
+
+        .form button {
+            background-color: #550F0D; /* Warna background tombol */
+            color: #FBC701; /* Warna teks tombol */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form button:hover {
+            background-color: #660F0D; /* Warna background tombol saat dihover */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Spasi atas tabel */
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #FBC701; /* Warna border */
+            text-align: left;
+        }
+
+        /* Warnai peringkat 1-4 dengan biru */
+        .blue {
+            color: #550F0D; /* Warna teks biru */
+        }
+
+        /* Sedikit ruang di sekitar gambar logo */
+        table img {
+            margin: 0 5px;
+            border-radius: 50%; /* Agar logo bulat */
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #550F0D; /* Warna background footer */
+            color: #FBC701; /* Warna teks footer */
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-background"></div>
+    <a href="index.html" style="position: absolute; top: 20px; left: 20px; color: #FBC701; text-decoration: none;">&#8592; Kembali</a>
+    <h1>Onic Esport</h1>
+</header>
+
+<nav>
+    <a href="#pendaftaran">Pendaftaran</a>
+    <a href="#klasemen">Klasemen</a>
+    <a href="#jadwal">Jadwal</a>
+</nav>
+
+<section id="pendaftaran">
+    <div class="container">
+        <h2>Pendaftaran</h2>
+        <p>
+            Selamat datang di proses pendaftaran Onic Esport! Kami senang Anda tertarik untuk bergabung dengan kompetisi kami. Untuk mendaftar, ikuti langkah-langkah di bawah ini dengan cermat:
+        </p>
+        <ol>
+            <li><strong>Isi Formulir Pendaftaran:</strong> Silakan isi formulir pendaftaran di bawah ini dengan lengkap. Pastikan untuk mengisi semua kolom yang disediakan dengan informasi yang akurat.</li>
+            <li><strong>Klik Tombol "Daftar":</strong> Setelah Anda selesai mengisi formulir, klik tombol "Daftar". Ini akan mengirimkan formulir pendaftaran Anda kepada kami untuk diproses.</li>
+            <li><strong>Verifikasi Melalui WhatsApp:</strong> Setelah mendaftar, tim kami akan menghubungi Anda melalui WhatsApp yang Anda cantumkan dalam formulir. Pastikan nomor WhatsApp yang Anda berikan dapat dihubungi.</li>
+            <li><strong>Konfirmasi Partisipasi:</strong> Tim kami akan memberikan konfirmasi tentang partisipasi Anda dalam kompetisi. Pastikan untuk memeriksa WhatsApp Anda secara teratur untuk mendapatkan update terkait status pendaftaran Anda.</li>
+        </ol>
+        <p>
+            Jika Anda memiliki pertanyaan atau membutuhkan bantuan lebih lanjut sehubungan dengan proses pendaftaran, jangan ragu untuk menghubungi tim kami melalui email atau WhatsApp yang tercantum di bagian kontak. Kami siap membantu Anda!
+        </p>
+        <!-- Form pendaftaran -->
+        <form id="registrationForm" class="form">
+            <label for="nama">Nama Kapten:</label>
+            <input type="text" id="nama" name="nama" required><br><br>
+            <label for="email">ID Kapten:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="nomor">Nomor Kapten:</label>
+            <input type="text" id="nomor" name="nomor" required><br><br>
+            <button type="button" onclick="kirimWhatsApp()">Daftar</button>
+        </form>
+    </div>
+</section>
+
+<section id="klasemen">
+    <div class="container">
+        <h2>Klasemen</h2>
+        <p>
+            Klasemen kami menampilkan peringkat tim berdasarkan kinerja mereka dalam kompetisi. Setiap pertandingan akan memberikan poin kepada tim berdasarkan hasilnya. Berikut adalah aturan pemberian poin:
+        </p>
+        <ul>
+            <li>1 Kill = 1 Poin</li>
+            <li>Top 1 = 12 Poin</li>
+            <li>Top 2 = 9 Poin</li>
+            <li>Top 3 = 8 Poin</li>
+            <li>Top 4 = 7 Poin</li>
+            <li>Top 5 = 6 Poin</li>
+            <li>Top 6 = 5 Poin</li>
+            <li>Top 7 = 4 Poin</li>
+            <li>Top 8 = 3 Poin</li>
+            <li>Top 9 = 2 Poin</li>
+            <li>Top 10 = 1 Poin</li>
+            <li>Top 11 = 0 Poin</li>
+            <li>Top 12 = 0 Poin</li>
+        </ul>
+        <p>
+            Logo tim akan tercantum di sebelah nama tim dalam klasemen. Tim dengan angka peringkat berwarna biru adalah tim yang lolos ke grup selanjutnya.
+        </p>
+        <!-- Tabel klasemen -->
+        <table>
+            <tr>
+                <th>Posisi</th>
+                <th>Nama Tim</th>
+                <th>Poin</th>
+                <th>Logo</th>
+            </tr>
+            <tr>
+                <td class="blue">1</td>
+                <td>Tim A</td>
+                <td>20</td>
+                <td><img src="logo_tim_a.png" alt="Logo Tim A" width="30"></td>
+            </tr>
+            <tr>
+                <td class="blue">2</td>
+                <td>Tim B</td>
+                <td>15</td>
+                <td><img src="logo_tim_b.png" alt="Logo Tim B" width="30"></td>
+            </tr>
+            <!-- Sisipkan baris sesuai kebutuhan -->
+        </table>
+    </div>
+</section>
+
+<section id="jadwal">
+    <div class="container">
+        <h2>Jadwal</h2>
+        <p>
+            Jadwal pertandingan akan memberikan informasi tentang tanggal dan waktu pertandingan yang akan dilaksanakan. Ini memungkinkan para pemain dan penggemar untuk mengetahui kapan pertandingan akan berlangsung sehingga mereka dapat menyesuaikan jadwal mereka dengan baik.
+        </p>
+        <p>
+            Selain itu, jadwal juga membantu dalam persiapan tim untuk pertandingan. Dengan mengetahui jadwal pertandingan mereka sebelumnya, tim dapat merencanakan strategi dan latihan dengan lebih baik, sehingga meningkatkan peluang mereka untuk meraih kemenangan.
+        </p>
+        <p>
+            Pastikan untuk selalu memeriksa jadwal secara berkala untuk mendapatkan update terbaru tentang pertandingan. Jika terdapat perubahan jadwal, informasi tersebut akan segera diperbarui agar semua pihak terinformasi dengan baik.
+        </p>
+        <p>
+            Turnamen terdiri dari 12 pot, dan setiap dua hari, satu pot akan bertanding pada pukul 21:00. Pot pertama akan bertanding pada tanggal 5 Maret, dan setiap hari berikutnya, pot berikutnya akan bertanding secara berurutan.
+        </p>
+        <!-- Tabel jadwal -->
+        <table>
+            <tr>
+                <th>Pot</th>
+                <th>Tanggal</th>
+                <th>Waktu</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>5 Maret 2024</td>
+                <td>21:00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>7 Maret 2024</td>
+                <td>21:00</td>
+            </tr>
+            <!-- Sisipkan baris sesuai kebutuhan -->
+        </table>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Hak Cipta © 2024 Onic Esport</p>
+    </div>
+</footer>
+
+<script>
+    function kirimWhatsApp() {
+        var nama = document.getElementById("nama").value;
+        var email = document.getElementById("email").value;
+        var nomor = document.getElementById("nomor").value;
+
+        var pesan = "Formulir Pendaftaran:\nNama Kapten: " + nama + "\nID Kapten: " + email + "\nNomor Kapten: " + nomor + "\n#idfmseason1";
+
+        var linkWhatsApp = "https://wa.me/6283139270060?text=" + encodeURIComponent(pesan);
+
+        window.open(linkWhatsApp);
+    }
+</script>
+</body>
+</html>

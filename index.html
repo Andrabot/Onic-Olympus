@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Setengah Layar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #ffe207;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    #logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px; /* Ukuran kecil */
+      height: auto;
+    }
+
+#welcome-section {
+  background-image: url('bck1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+}
+#welcome-section h1:first-child {
+  margin-bottom: -23px; /* Atur ruang bawah antara h1 pertama dan h1 kedua */
+  text-indent: 120px;
+}
+#welcome-section h1 {
+  text-align: center;
+  margin-bottom: 2px; /* Menambahkan margin bawah untuk memberi ruang antara judul dan teks berikutnya */
+}
+
+#welcome-section p {
+  text-align: center;
+}
+
+
+#pro-team-image {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px; /* Ukuran gambar yang lebih besar */
+  height: auto;
+  z-index: 998;
+}
+
+#pro-team-image img {
+  width: 100%; /* Menyesuaikan lebar gambar dengan lebar kontainer */
+  height: auto;
+}
+
+    .bck2 {
+      background-image: url('bck2.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh; /* Mengatur ketinggian menjadi setengah layar */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 52vh; /* Menempatkan overlay di antara bck1 dan bck2 */
+      left: 0;
+      width: 100%;
+      height: 50vh; /* Mengatur ketinggian menjadi setengah layar */
+      background-color: rgba(216, 181, 17, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .background-color {
+      background-color: #383838;
+      height: 50%;
+    }
+
+    .text-over-background {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* CSS untuk menu */
+    #toggle-menu,
+    #close-menu {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #toggle-menu span {
+      display: block;
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin-bottom: 7px;
+      border-radius: 2px;
+    }
+
+    #toggle-menu span:last-child {
+      margin-bottom: 0;
+    }
+
+#close-menu {
+  display: none;
+  color: #ffff;
+  font-size: 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2px;
+  z-index: 2001; /* Mengatur z-index menjadi lebih tinggi dari header */
+}
+
+
+#menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #333;
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 2000; /* Mengatur z-index menjadi lebih tinggi dari header */
+}
+
+    #menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #menu ul li {
+      margin-bottom: 15px;
+    }
+
+    #menu ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    #menu ul li a:hover {
+      color: #66c2ff;
+    }
+
+    #menu.show {
+      transform: translateX(0);
+    }
+#logo2 {
+  position: absolute;
+  bottom: -710px; /* Jarak dari bagian bawah */
+  left: 50%; /* Posisi horizontal di tengah */
+  transform: translateX(-50%); /* Menggeser gambar ke kiri sejauh setengah lebar gambar */
+  width: 450px; /* Atur lebar gambar sesuai kebutuhan */
+  height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi aslinya */
+}
+    .overlay2 {
+      position: absolute;
+      top: 50vh; /* Menempatkan overlay di antara bck1 dan bck2 */
+      left: 0;
+      width: 100%;
+      height: 253px; /* Mengatur ketinggian menjadi setengah layar */
+      background-color: #383838;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+.gray-background {
+  position: absolute;
+  top: 1407px;
+  left: 0;
+  width: 100%;
+  height: 40vh; /* Sesuaikan ketinggian sesuai kebutuhan */
+  background-color: #383838; /* Warna abu-abu */
+  display: flex;
+  flex-direction: column; /* Menata elemen secara vertikal */
+  justify-content: center; /* Menengahkan elemen secara vertikal */
+  align-items: center; /* Menengahkan elemen secara horizontal */
+}
+.menu-link {
+  font-size: 15px; /* Ukuran font */
+  color: white; /* Warna teks */
+  text-decoration: none; /* Menghapus garis bawah */
+  margin: 2px 0; /* Ruang atas dan bawah */
+  font-weight: bold;
+}
+#social-media-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Atur jarak atas */
+}
+
+.social-media-link {
+  margin: 0 10px; /* Atur jarak antara logo */
+}
+
+.social-media-link img {
+  width: 30px; /* Atur ukuran logo */
+  height: auto;
+}
+#onic-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Atur jarak atas */
+}
+
+#onic-logo img {
+  width: 80px; /* Atur ukuran logo */
+  height: auto;
+}
+#copyright {
+  text-align: center;
+  margin-top: 10px; /* Atur jarak atas */
+  color: #ffffff; /* Warna teks */
+  font-size: 12px; /* Ukuran font */
+}
+.onic-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+.overlay2-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ 
+  </style>
+</head>
+<body>
+  <div id="header">
+    <img src="onicl.png" alt="Logo" id="logo">
+  </div>
+
+  <<div id="welcome-section">
+    <h1 style="color: #FFCF00;">WELCOME TO</h1>
+    <h1>THE YELLOW SPHERE</h1>
+    <p>We provide the best environment possible for professional players to excel and compete on an international level.</p>
+</div>
+
+
+  <div id="pro-team-image">
+    <a href="pendaftaran.html"><img src="pro1.png" alt="Pro Team"></a>
+  </div>
+
+  <div class="bck2"></div>
+
+<div class="overlay">
+  <div class="overlay-text"></div>
+  <div class="background-color"></div>
+  <div class="text-over-background"></div>
+  <div class="onic-text">
+  <p>ONIC E-SPORT adalah Tim Manajemen E-Sports Profesional. Didirikan pada tahun 2018, kami bertujuan untuk menjadi organisasi e-sports terbaik yang mewakili Asia Tenggara. Kami mengelola talenta dan membuat mereka bersinar.</p>
+  <p>ONIC dibangun dengan keyakinan bahwa kita melihat masa depan dunia hiburan adalah e-sports.</p>
+  <p>Dunia e-sports di Indonesia masih berada pada tahap awal, dan ONIC hadir untuk meningkatkan permainannya.</p>
+</div>
+  <div>
+    <img src="bck3.jpg" alt="logo2" id="logo2">
+<div class="overlay2">
+  <div class="overlay2-text">
+    <h2 style="color: yellow; text-align: center;">ONIC VISION</h2>
+    <p style="font-size: 14px; text-align: center;">To be the highest benchmark in e-sports industry in South East Asia.</p>
+    <h2 style="color: yellow; text-align: center;">ONIC MISSION</h2>
+    <p style="font-size: 14px; text-align: center;">Create the best environment possible for professional players to excel and compete on an international level.</p>
+  </div>
+  <img src="bck3.jpg" alt="logo2" id="logo2">
+</div>
+
+
+<div class="gray-background">
+  <a href="#" class="menu-link">HOME</a>
+  <a href="team.html" class="menu-link">TEAM</a>
+  <a href="home.html" class="menu-link">SCHEDULE</a>
+  <a href="team.html" class="menu-link">ACHIEVEMENTS</a>
+  <a href="team.html" class="menu-link">OUR SPONSOR</a>
+  <!-- Tambahkan logo kecil dengan link ke media sosial -->
+<div id="social-media-logos">
+  <a href="#" class="social-media-link"><img src="twit.png" alt="Twitter"></a>
+  <a href="#" class="social-media-link"><img src="tt.png" alt="Facebook"></a>
+  <a href="#" class="social-media-link"><img src="ig.png" alt="Instagram"></a>
+  <a href="#" class="social-media-link"><img src="yt.png" alt="YouTube"></a>
+</div>
+<!-- Tambahkan logo "onic1" di bawah logo media sosial -->
+<div id="onic-logo">
+  <a href="#"><img src="onicl.png" alt="Onic1"></a>
+</div>
+<div id="copyright">
+  <p>Hak Cipta &copy; 2024 Thugina</p>
+</div>
+
+
+  <!-- Menampilkan menu -->
+  <button id="toggle-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button id="close-menu">&#10006;</button>
+
+  <!-- Navigasi menu -->
+  <nav id="menu">
+    <ul>
+      <li><a href="#">Menu Item 1</a></li>
+      <li><a href="#">Menu Item 2</a></li>
+      <li><a href="#">Menu Item 3</a></li>
+      <li><a href="#">Menu Item 4</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    var toggleMenu = document.getElementById('toggle-menu');
+    var closeMenu = document.getElementById('close-menu');
+    var menu = document.getElementById('menu');
+
+    toggleMenu.addEventListener('click', function() {
+      menu.classList.toggle('show');
+      toggleMenu.style.display = 'none';
+      closeMenu.style.display = 'block';
+    });
+
+    closeMenu.addEventListener('click', function() {
+      menu.classList.remove('show');
+      toggleMenu.style.display = 'block';
+      closeMenu.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
